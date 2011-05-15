@@ -1,0 +1,278 @@
+html,body
+{
+	margin:0;
+	padding:0;
+	background:#333;
+	color:#FFF;
+	font-family:arial, serif;
+
+}
+
+#tasks
+{
+	position:absolute;
+	top:0;
+	height:7%;
+	width:100%;
+	border-bottom:#444444 .15em solid;
+}
+
+#logo
+{
+	position:relative;
+	display:inline-block;
+	left:0;
+	height:98%;
+	
+}
+
+#search
+{
+	position:relative;
+	float:right;
+	right:0;
+	bottom:0;
+}
+
+#titles
+{
+	position:absolute;
+	top:9%;
+	height:2.5%;
+	width:96%;
+	left:3%;
+}
+
+#artistsSectionTitle
+{
+	position:relative;
+	display:inline-block;
+	width:32.5%;
+	font-weight:bold;
+	color:#FFF;
+	font-size:1.25em;
+	line-height:0%;
+	text-align:left;
+	vertical-align:text-top;
+}
+
+#albumsSectionTitle
+{
+	position:relative;
+	display:inline-block;
+	width:32.5%;
+	font-weight:bold;
+	color:#FFF;
+	font-size:1.25em;
+	line-height:0;
+	text-align:left;
+	vertical-align:text-top;
+}
+
+#songsSectionTitle
+{
+	position:relative;
+	display:inline-block;
+	width:32%;
+	font-weight:bold;
+	color:#FFF;
+	font-size:1.25em;
+	line-height:0;
+	text-align:left;
+	vertical-align:text-top;
+}
+
+#mid
+{
+	position:absolute;
+	top:11%;
+	height:66%;
+	width:96%;
+	left:2.5%;
+}
+
+#artistSection
+{
+	position:relative;
+	float:left;
+	width:33%;
+	height:100%;
+	border-top:.15em solid #444444;
+	border-bottom:.15em solid #444444;
+	overflow:auto;
+}
+
+#albumSection
+{
+	position:relative;
+	float:left;
+	width:33%;
+	height:100%;
+	overflow:auto;
+	border:.15em solid #444444;
+}
+
+#songSection
+{
+	position:relative;
+	float:left;
+	width:33%;
+	height:100%;
+	border-top:.15em solid #444444;
+	border-bottom:.15em solid #444444;
+	overflow:auto;
+}
+
+.albumArt
+{
+	float:right;
+}
+
+table
+{
+	border-collapse:collapse;
+}
+.selectable
+{
+	position:relative;
+	width:97%;
+	cursor:pointer; cursor:hand;
+	color:#FFF;
+	font-size:1em;
+	vertical-align:middle;
+	margin:0 auto 0 auto;
+	font-family: Century Gothic, sans-serif;
+}
+
+tr.selectable
+{
+	height:32px;
+	margin:0;
+	padding:0;
+	border:0;
+}
+
+tr.selectable:hover
+{
+	font-weight:bold;
+}
+
+#now
+{
+	position:absolute;
+	bottom:0;
+	left:0;
+	width:100%;
+	height:20%;
+	/*border-top:.15em solid #444444;*/
+	/*border-bottom:.15em solid #444444;*/
+}
+
+
+
+#importProgress
+{
+	position:absolute;
+	display:block;
+    height:50%;
+	top:20%;
+	left:35%;
+	width:30%;
+	text-align:center;
+	font-size:.85em;
+    background:#444;
+    border:solid .15em #444;
+}
+
+#importSongCount
+{
+	position:absolute;
+	width:100%;
+	top:0;
+	background:transparent;
+}
+
+#add_files
+{
+	position:relative;
+	left:0;
+	top:0;
+	width:100%;
+	height:96%;
+	cursor:pointer;
+    cursor:hand;
+    background:#156ABF;
+}
+
+#controlls
+{
+	position:absolute;
+	width:100%;
+	height:12%;
+    padding:.5% 0 .5% 0;
+	bottom:0px;
+	left:0;
+	margin:0;
+    background:#444;
+}
+
+#prevButton
+{
+	position:absolute;
+	width:3%;
+	left:.5%;
+	padding:0;
+	margin:0;
+}
+
+#playPauseButton
+{
+	position:absolute;
+	top:0;
+	width:2%;
+	left:4%;
+	padding:0;
+	margin:0;
+	
+}
+
+#nextButton
+{
+	position:absolute;
+	width:3%;
+	left:6.5%;
+	padding:0;
+	margin:0;
+}
+
+#progressBackground
+{
+	position:absolute;
+	width:60%;
+	height:22%;
+	left:10%;
+    top:25%;
+	background:#06D;
+	border-radius: 90px;
+    border:solid .25em #06D;
+	cursor:pointer;
+    cursor:hand;
+}
+
+#progressBar
+{
+	position:relative;
+	left:0;
+	width:1%;
+	height:100%;
+	background:#FFF;
+	border-radius: 90px;
+}
+
+#songTime
+{
+	position:absolute;
+	left:71%;
+	text-align:center;
+}
+
