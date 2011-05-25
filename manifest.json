@@ -1,7 +1,7 @@
 {
   "name": "Bracket",
   "description": "Music player in a browser.",
-  "version": "0.2",
+  "version": "0.2.1",
   "app": {
     "launch": {
       "local_path": "index.html"
