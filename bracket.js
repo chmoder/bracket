@@ -20,7 +20,7 @@ bracket.handleFiles = function(inputFiles)
 			files.push(file);
 	});
 	bracket.updateProcessedFiles.setTotalFiles(files.length);
-	$('#add_files').html('');
+	$('#add_files').html('&nbsp;');
 	(function pushFiles(files, i) {
 		if(files[i] != undefined) {
 			var dataReader = new FileReader();
@@ -193,7 +193,7 @@ bracket.lastfmGetAlbumArtwork = function(songObj/*, username*/) {
 
 bracket.addAlbumArtwork = function() {
 	bracket.clearAll();
-	$('#add_files').html('');
+	$('#add_files').html('&nbsp;');
 	var request = window.indexedDB.open('musicDB', 'Music Player Database');
 
 	request.onsuccess = function(event) {
@@ -228,7 +228,7 @@ bracket.addAlbumArtwork = function() {
 
 bracket.normalizeTracks = function() {
 	bracket.clearAll();
-	$('#add_files').html('');
+	$('#add_files').html('&nbsp;');
 	var request = window.indexedDB.open('musicDB', 'Music Player Database');
 	request.onsuccess = function(event) {
 		var db = event.target.result;
@@ -306,6 +306,7 @@ bracket.updateSongObj = function(songObj) {
 			++this.processedFiles;
 		},
 		lastFile: function() {
+			bracket.clearAll();
 			bracket.loadArtists();
 		},
 		onsuccess: function(event) {

@@ -2,7 +2,6 @@ function loadUrl(url, callback, reader) {
     var startDate = new Date().getTime();
     ID3.loadTags(url, function() {
         var endDate = new Date().getTime();
-        if (typeof console !== "undefined") console.log("Time: " + ((endDate-startDate)/1000)+"s");
         var tags = ID3.getAllTags(url);
 		if( callback ) { callback(tags); };
     },

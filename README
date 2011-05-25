@@ -15,28 +15,12 @@ along with bracket.  If not, see <http://www.gnu.org/licenses/>.
 ///////////////////////////////////////////////////////////////////
 
 
-Bracket is a music player that plays your music in your web browser without third party plugins, software, or even an active internet connection.  Right
-now only mp3's are supported and it is in beta, so there may be hiccups.  Just press refresh or re-install bracket if you think there is a problem.
+Bracket is a music player that plays your music in your web browser without third party plugins, software, or even an active internet connection.  Right now only mp3's are supported and it is in beta, so
+there may be hiccups.  Just press refresh if you think there is a problem.
 
-Bracket features:
-completely offline
-mp3 support
-tag parser
-tag based interface
-folder import
-no adobe flash
+vist http://www.chmoder.org/projects/bracket/
+for more information.
 
-Updates:
-music search
-last.fm integration for normalizing track data
-last.fm album artwork downloads
-minor bug fixes
-
-Beta Warnings:
-Right now Google Chrome has a 1GB file limit for indexeddb.  This means that if you attempt to put more than 1 gigabyte of music into bracket it will stop
-importing songs.  The chromium team is working on a fix: https://github.com/chmoder/bracket/issues/1
-
-For more information or to submit bug reports and feature requests visit http://www.chmoder.org/projects/bracket/
 
 ID3 Tag parser by:
 Jacob Seidelin

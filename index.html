@@ -29,9 +29,11 @@
 			</div>
 			<div id="lastfm" class="lastfm" onclick="($('#lastfm > div').css('display') == 'none') ? $('#lastfm > div').slideDown():$('#lastfm > div').slideUp();">last.fm
 				<div>
-					<!--<a href="#" class="item" onclick="return false;">Log In</a><br />-->
-					<a href="#" class="item" onclick="bracket.normalizeTracks(); return false;">Normalize Tracks</a><br />
-					<a href="#" class="item" onclick="bracket.addAlbumArtwork(); return false;">Add Artwork</a>
+					<ul>
+						<!--<a href="#" class="item" onclick="return false;">Log In</a><br />-->
+						<li><a href="#" class="item" onclick="bracket.normalizeTracks(); return false;">Normalize Tracks</a></li>
+						<li><a href="#" class="item" onclick="bracket.addAlbumArtwork(); return false;">Add Artwork</a></li>
+					</ul>
 				</div>
 			</div>
 			<input type="text" id="search" onkeyup="bracket.songSearch(this.value)" />
