@@ -1,0 +1,36 @@
+This file is part of Bracket music player.
+
+Bracket music player is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Bracket music player is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with bracket.  If not, see <http://www.gnu.org/licenses/>.
+///////////////////////////////////////////////////////////////////
+
+
+Bracket is a music player that plays your music in your web browser without third party plugins, software, or even an active internet connection.  Right now only mp3's are supported and it is in beta, so
+there may be hiccups.  Just press refresh if you think there is a problem.
+
+vist http://www.chmoder.org/projects/bracket/
+for more information.
+
+
+ID3 Tag parser by:
+Jacob Seidelin
+António Afonso
+Joshua Kifer
+https://github.com/aadsm/JavaScript-ID3-Reader
+
+
+chmoder.org, hereby disclaims all copyright interest in the program “Bracket” (which makes passes at compilers) written by Thomas Cross.
+
+<Thomas Cross>, 05.15.2011 April 1989
+Thomas Cross, President of chmoder.org
+
