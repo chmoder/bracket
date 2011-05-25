@@ -1,0 +1,86 @@
+<!--
+    File index.html
+    Thomas Cross
+    05.15.2011
+    
+    This file is the front end of bracket.
+-->
+<!DOCTYPE html> 
+<html lang="en"> 
+    <head> 
+        <meta charset="UTF-8">
+        <title>Bracket</title>  
+		<link href="bracket.css" rel="stylesheet" type="text/css">
+		<script type="text/javascript" src="jquery.js"></script>
+		<script type="text/javascript" src="id3/dist/id3-minimized.js"></script>
+		<script type="text/javascript" src="id3/src/new.js"></script>
+		<script type="text/javascript" src="bracket.js"></script>
+		<script type="text/javascript" src="controls.js"></script>
+		<script type="text/javascript" src="misc.js"></script>
+    </head> 
+ 
+    <body>
+		<div id="tasks">
+			<a href="http://www.chmoder.org/projects/bracket/" target="_blank"><img id="logo" src="images/logo.png"></img></a>
+            <div id="importProgress">
+				<input type="file" id="file_elem" name="file_elem" accept="audio/*" webkitdirectory directory onchange="bracket.handleFiles(this.files);" style="position:absolute; z-index:-1; visibility:hidden;" />
+                <div id="add_files">Add Directory</div>
+				<div id="importSongCount"></div>
+			</div>
+			<div id="lastfm" class="lastfm" onclick="($('#lastfm > div').css('display') == 'none') ? $('#lastfm > div').slideDown():$('#lastfm > div').slideUp();">last.fm
+				<div>
+					<ul>
+						<!--<a href="#" class="item" onclick="return false;">Log In</a><br />-->
+						<li><a href="#" class="item" onclick="bracket.normalizeTracks(); return false;">Normalize Tracks</a></li>
+						<li><a href="#" class="item" onclick="bracket.addAlbumArtwork(); return false;">Add Artwork</a></li>
+					</ul>
+				</div>
+			</div>
+			<input type="text" id="search" onkeyup="bracket.songSearch(this.value)" />
+		</div>
+		<div id="titles">
+			<div id="artistsSectionTitle">
+				Artists
+			</div>
+			<div id="albumsSectionTitle">
+				Albums
+			</div>
+			<div id="songsSectionTitle">
+				Songs
+			</div>
+		</div>
+ 		<div id="mid">
+			<div id="artistSection">
+				<table id="artists" class="selectable">
+				</table>
+			</div>
+
+			<div id="albumSection">
+				<table id="albums" class="selectable">
+				</table>
+			</div>
+			<div id="songSection">
+				<table id="songs" class="selectable">
+				</table>
+			</div>
+        </div>
+ 		<div id="now">
+			<div id="nowPlaying" class="nowPlaying">
+				<b style="font-size:1.25em;">Playing: </b><div id="nowPlayingTitle" style="display:inline;"></div><br />
+				<b style="font-size:1.25em;">By: </b><div id="nowPlayingArtist" style="display:inline;"></div><br />
+				<b style="font-size:1.25em;">From: </b><div id="nowPlayingAlbum" style="display:inline;"></div>
+			</div>
+			 <div id="controlls">
+				<img type="button" id="prevButton" src="images/controls/prev.png" alt="<<" onclick="bracket.controls.playPrev();" />
+				<img type="button" id="playPauseButton" src="images/controls/pause.png" alt="|>"onclick="bracket.controls.playPauseSong($(this).text());" />
+				<img type="button" id="nextButton" src="images/controls/next.png" alt=">>" onclick="bracket.controls.playNext();" />
+				<div id="progressBackground">
+					<div id="progressBar"></div>
+				</div>
+                <div id="songTime"></div>
+			</div>
+			<img id="nowArt"></img>
+			<audio id="currentSong" preload></audio>
+        </div>
+    </body> 
+</html>
