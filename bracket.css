@@ -12,6 +12,7 @@ html,body
 {
 	position:absolute;
 	top:0;
+	left:0;
 	height:7%;
 	width:100%;
 	border-bottom:#444444 .15em solid;
@@ -26,12 +27,103 @@ html,body
 	
 }
 
-#search
+#importProgress
+{
+	position:absolute;
+	display:block;
+    height:50%;
+	top:20%;
+	left:35%;
+	width:30%;
+	text-align:center;
+	font-size:110%;
+    background:#444;
+    border:solid .18em #444;
+	border-radius: 3px;
+}
+
+#importSongCount
+{
+	position:absolute;
+	width:100%;
+	top:0;
+	background:transparent;
+}
+
+#add_files
 {
 	position:relative;
-	float:right;
-	right:0;
-	bottom:0;
+	left:0;
+	top:0;
+	width:100%;
+	height:96%;
+	cursor:pointer;
+    cursor:hand;
+    background:#06D;
+}
+
+div.lastfm
+{
+	position:absolute;
+	top:20%;
+	left:68%;
+	padding:0;
+	margin:0;
+	list-style-type:none;
+	width:150px;
+	height:50%;
+	background:#D51007;
+	font-weight:bold;
+	font-size:120%;
+	border-radius: 6px;
+	text-align:center;
+    border:solid 4px #444;
+	cursor:pointer; cursor:hand;
+	
+}
+
+div.lastfm > div
+{
+	position:absolute;
+	top:95%;
+	left:-4px;
+	width:90%;
+	z-index:1;
+	background:#D51007;
+	display:none;
+    border:solid % #444;
+	border-bottom-left-radius: 6px;
+	border-bottom-right-radius: 6px;
+	padding-bottom:10%;
+	padding-left:10%;
+	font-size:.85em;
+	text-align:left;
+    border:solid 4px #444;
+    border-top:none;
+
+}
+
+div.lastfm > div > a.item
+{
+	font-size:.85em;
+	color:#FFF;
+	font-weight:bold;
+	vertical-align:bottom;
+}
+
+#search
+{
+	position:absolute;
+	right:1%;
+	top:20%;
+	height:50%;
+	width:16%;
+	font-size:1.25em;
+    background:#06D;
+    border:solid .18em #444;
+	border-radius: 3px;
+	color:#FFF;
+	padding-left:.5%;
 }
 
 #titles
@@ -60,7 +152,7 @@ html,body
 {
 	position:relative;
 	display:inline-block;
-	width:32.5%;
+	width:33%;
 	font-weight:bold;
 	color:#FFF;
 	font-size:1.25em;
@@ -73,7 +165,7 @@ html,body
 {
 	position:relative;
 	display:inline-block;
-	width:32%;
+	width:30%;
 	font-weight:bold;
 	color:#FFF;
 	font-size:1.25em;
@@ -132,6 +224,7 @@ table
 {
 	border-collapse:collapse;
 }
+
 .selectable
 {
 	position:relative;
@@ -163,45 +256,18 @@ tr.selectable:hover
 	bottom:0;
 	left:0;
 	width:100%;
-	height:20%;
+	height:22%;
 	/*border-top:.15em solid #444444;*/
 	/*border-bottom:.15em solid #444444;*/
 }
 
-
-
-#importProgress
+#nowArt
 {
 	position:absolute;
-	display:block;
-    height:50%;
-	top:20%;
-	left:35%;
-	width:30%;
-	text-align:center;
-	font-size:.85em;
-    background:#444;
-    border:solid .15em #444;
-}
-
-#importSongCount
-{
-	position:absolute;
-	width:100%;
 	top:0;
-	background:transparent;
-}
-
-#add_files
-{
-	position:relative;
-	left:0;
-	top:0;
-	width:100%;
-	height:96%;
-	cursor:pointer;
-    cursor:hand;
-    background:#156ABF;
+	right:0;
+	height:81%;
+	z-index:-1;
 }
 
 #controlls

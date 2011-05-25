@@ -35,7 +35,6 @@ bracket.handleFiles = function(inputFiles)
                                 if(i < files.length)
 									pushFiles(files, ++i);
 							});
-							//bracket.insertSongInfo(tags, files[i], [files, i], function(files, i) {
 						}
 						else {
 							bracket.updateProcessedFiles.increment();
@@ -113,40 +112,16 @@ bracket.lastfmLoginUser = function() {
 		}
 	});
 }
-
-
-bracket.lastfmGetAlbumInfo = function(artist, album, callback) {
-	var retval = null;
-	$.ajax({
-		url: 'http://ws.audioscrobbler.com/2.0/',
-		type: 'POST',
-		data:{
-		  		artist: artist, 
-		  		album: album,
-		  		method: 'album.getinfo', 
-		  		api_key: 'b164358899cb569574af5881198d3c58',
-		  		autocorrect: 1,
-		  		format: 'json'
-			},
-		dataType: 'json',
-		crossDomain: true,
-		async: false,
-		success: function(data) {
-			retval = data;
-		}
-	});
-	return this.value;
-}
 */
 
-bracket.lastfmGetTrackInfo = function(tags, username, file, callback) {
+bracket.lastfmGetTrackInfo = function(songObj) {
 	$.ajax({
 		url: 'http://ws.audioscrobbler.com/2.0/',
 		type: 'POST',
 		data:{
-		  		artist: tags.Artist, 
-		  		track: tags.Title,
-		  		username: username,
+		  		artist: songObj.artist, 
+		  		track: songObj.title,
+		  		/*username: username,*/
 		  		method: 'track.getinfo', 
 		  		api_key: 'b164358899cb569574af5881198d3c58',
 		  		autocorrect: 1,
@@ -156,24 +131,164 @@ bracket.lastfmGetTrackInfo = function(tags, username, file, callback) {
 		crossDomain: true,
 		async: true,
 		success: function(data, status, jqXHR) {
-			if(data.error || !data.track.artist.name || !data.track.album || !data.track.name) {
-				data.track = {};
-				data.track.artist = {};
-				data.track.album = {};
-				data.track.artist.name = tags.Artist;
-				data.track.album.title = tags.Album;
-				data.track.name = tags.Title;
-				data.track.album['@attr'] = {};
-				data.track.album['@attr'].position = (tags.Track_number ? tags.Track_number.substring(0, tags.Track_number.search('/')):'');
-				callback(data, file);
+			if(!data.error && data.track.artist.name && data.track.album && data.track.name) {
+				songObj.artist = data.track.artist.name;
+				songObj.album = data.track.album.title;
+				songObj.title = data.track.name;
+				bracket.updateSongObj(songObj);
 			}
 			else {
-				callback(data, file);
+				bracket.updateProcessedFiles.increment();
+				bracket.updateProcessedFiles.updateTextProgress();
 			}
 		}
 	});
 }
 
+bracket.lastfmGetAlbumArtwork = function(songObj/*, username*/) {
+	$.ajax({
+		url: 'http://ws.audioscrobbler.com/2.0/',
+		type: 'POST',
+		data:{
+		  		artist: songObj.artist, 
+		  		track: songObj.title,
+		  		/*username: username,*/
+		  		method: 'track.getinfo', 
+		  		api_key: 'b164358899cb569574af5881198d3c58',
+		  		autocorrect: 1,
+		  		format: 'json'
+			},
+		dataType: 'json',
+		crossDomain: true,
+		async: true,
+		success: function(ajaxData, status, jqXHR) {
+			var data, canvas, ctx;
+			var img = new Image();
+			img.onload = function(){
+				// Create the canvas element.
+				canvas = document.createElement('canvas');
+				canvas.width = img.width;
+				canvas.height = img.height;
+				// Get '2d' context and draw the image.
+				ctx = canvas.getContext("2d");
+				ctx.drawImage(img, 0, 0);
+				// Get canvas data URL
+				try{
+					data = canvas.toDataURL();
+					$('#nowArt').attr('src', data);
+					songObj.art = data;
+					bracket.updateSongObj(songObj);
+				}catch(e){
+					console.log(e);
+				}
+			}
+			// Load image URL.
+			if(ajaxData.track.album === undefined)
+				img.src = 'https://github.com/chmoder/bracket/raw/master/images/icons/icon_128.png';
+			else
+				img.src = ajaxData.track.album.image[3]['#text'];
+		}
+	});
+}
+
+bracket.addAlbumArtwork = function() {
+	bracket.clearAll();
+	$('#add_files').html('');
+	var request = window.indexedDB.open('musicDB', 'Music Player Database');
+
+	request.onsuccess = function(event) {
+		var db = event.target.result;
+
+		var transaction = db.transaction(['songInfoDB'], webkitIDBTransaction.READ_ONLY);
+		var store = transaction.objectStore('songInfoDB');
+		var request = store.openCursor();
+
+
+		var existArr = Array();
+		request.onsuccess = function(event){
+			if(event.target.result == null)
+			{
+				db.close();
+				$('#nowArt').attr('src', null);
+				bracket.updateProcessedFiles.setTotalFiles(existArr.length);
+				bracket.updateProcessedFiles.updateTextProgress();
+				for(var i in existArr) {
+					bracket.lastfmGetAlbumArtwork(existArr[i]);
+				}
+				return;
+			}
+			else
+			{
+				existArr.push(event.target.result.value);
+				event.target.result.continue();
+			}
+		}
+	}
+}
+
+bracket.normalizeTracks = function() {
+	bracket.clearAll();
+	$('#add_files').html('');
+	var request = window.indexedDB.open('musicDB', 'Music Player Database');
+	request.onsuccess = function(event) {
+		var db = event.target.result;
+		var transaction = db.transaction(['songInfoDB'], webkitIDBTransaction.READ_ONLY);
+		var store = transaction.objectStore('songInfoDB');
+		var request = store.openCursor();
+
+		var existArr = Array();
+		request.onsuccess = function(event){
+			bracket.clearArtists();
+			if(event.target.result == null)
+			{
+				db.close();
+				bracket.updateProcessedFiles.setTotalFiles(existArr.length);
+				bracket.updateProcessedFiles.updateTextProgress();
+				for(var i in existArr) {
+					bracket.lastfmGetTrackInfo(existArr[i]);
+				}
+				return;
+			}
+			else
+			{
+				existArr.push(event.target.result.value);
+				event.target.result.continue();
+			}
+		}
+	}
+}
+
+bracket.updateSongObj = function(songObj) {
+	var request = window.indexedDB.open('musicDB', 'Music Player Database');
+	request.onsuccess = function(event) {
+		var db = event.target.result;
+		var transaction = db.transaction(['songInfoDB'], webkitIDBTransaction.READ_WRITE);
+		var infoStore = transaction.objectStore('songInfoDB');
+		
+		var infoRequest = infoStore.delete(parseInt(songObj.songInfoId));
+		infoRequest.onsuccess = function(event) {
+			var infoReq = infoStore.add({
+																	fileName: songObj.fileName,
+																	title: songObj.title, 
+																	album: songObj.album,
+																	artist: songObj.artist,
+																	art: songObj.art,
+																	songInfoId: songObj.songInfoId
+																});
+			infoReq.onsuccess = function(event) {
+				bracket.updateProcessedFiles.increment();
+				bracket.updateProcessedFiles.updateTextProgress();
+				db.close();
+			}
+			infoReq.onerror = function(event) {
+				console.log('Error updating song: %o', event);
+			}
+		}
+		infoRequest.onerror = function(event) {
+			console.log('Error deleting entry %o', event);
+		}
+	}
+}
 
 	bracket.updateProcessedFiles = {
 		processedFiles: 0,
@@ -247,10 +362,7 @@ bracket.loadArtists = function() {
 			bracket.clearArtists();
 			if(event.target.result == null)
 			{
-				if(!existArr.length)
-					$('#importProgress').fadeIn();
 				db.close();
-				
 				existArr.sort();
 				for(var i in existArr)
 				{
@@ -311,7 +423,7 @@ bracket.loadArtistAlbums = function(artistName) {
 }
 
 bracket.pushAlbum = function(value) {
-	$('#albums').append('<tr class="selectable" onclick="bracket.clearSongs(); bracket.loadAlbumSongs($(this).text());"><td style="background:url(' + (value.art ? value.art[0]['#text']:'') + ') no-repeat 100% 0; background-size:32px;">' + value.album + '</td></tr>');
+	$('#albums').append('<tr class="selectable" onclick="bracket.clearSongs(); bracket.loadAlbumSongs($(this).text());"><td style="background:url(' + value.art + ') no-repeat 100% 0; background-size:32px;">' + value.album + '</td></tr>');
 }
 
 bracket.loadAlbumSongs = function(albumName) {
@@ -442,7 +554,7 @@ bracket.play = function(songInfoId) {
 		var infoIndex = infoStore.index('songInfo');
 		var infoRequest = infoIndex.get(parseInt(songInfoId));
 		infoRequest.onsuccess = function(event) {
-			$('#nowArt').attr('src', (event.target.result.art ? event.target.result.art[3]['#text']:''));
+			$('#nowArt').attr('src', event.target.result.art);
 			bracket.controls.setNowPlayingInfo(event.target.result);
 			$('#playPauseButton').css('display','block');
 			$('#playPauseButton').text('Pause');
@@ -454,6 +566,54 @@ bracket.play = function(songInfoId) {
 		var dataRequest = dataIndex.get(parseInt(songInfoId));
 		dataRequest.onsuccess = function(event) {
 			$('#currentSong').attr('src', event.target.result.songData);
+		}
+	}
+}
+
+bracket.songSearch = function(term) {
+	bracket.clearAll();
+	if(!term) {
+		bracket.loadArtists();
+	}
+	else {
+		
+		var request = window.indexedDB.open('musicDB', 'Music Player Database');
+		request.onsuccess = function(event) {
+			var db = event.target.result;
+
+			var transaction = db.transaction(['songInfoDB'], webkitIDBTransaction.READ_ONLY);
+			var store = transaction.objectStore('songInfoDB');
+			var request = store.openCursor();
+
+
+			var existArr = Array();
+			request.onsuccess = function(event){
+				bracket.clearAll();
+				if(event.target.result == null)
+				{
+					db.close();
+					existArr.sort();
+					for(var i in existArr)
+					{
+						bracket.pushArtist(existArr[i]);
+					}
+					bracket.loadArtistAlbums($('#artists tr:first > td').text());
+					return;
+				}
+				else
+				{
+					//term = term.replace(/\s+/g,'|');
+					var patt= new RegExp('.*'+term+'.*','i');
+					if((patt.test(event.target.result.value.artist) || patt.test(event.target.result.value.album) || patt.test(event.target.result.value.title)) && $.inArray(event.target.result.value.artist, existArr) == -1)
+					{
+						if($.inArray(event.target.result.value.artist, existArr) == -1)
+						{
+							existArr.push(event.target.result.value.artist);
+						}
+					}
+						event.target.result.continue();
+				}
+			}
 		}
 	}
 }

@@ -10,27 +10,10 @@
     <head> 
         <meta charset="UTF-8">
         <title>Bracket</title>  
-		<link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
-		<link href='http://fonts.googleapis.com/css?family=Puritan:regular,bold' rel='stylesheet' type='text/css'>
-		<link href='http://fonts.googleapis.com/css?family=Droid+Sans:regular,bold' rel='stylesheet' type='text/css'> 
 		<link href="bracket.css" rel="stylesheet" type="text/css">
 		<script type="text/javascript" src="jquery.js"></script>
 		<script type="text/javascript" src="id3/dist/id3-minimized.js"></script>
-
-		<!--<script type="text/javascript" src="id3v2.js"></script>-->
-		<!--
-		<script type="text/javascript" src="id3/src/id3.js"></script>
-		<script type="text/javascript" src="id3/src/base64.js"></script>
-		<script type="text/javascript" src="id3/src/binaryajax.js"></script>
-		<script type="text/javascript" src="id3/src/bufferedbinaryajax.js"></script>
-		<script type="text/javascript" src="id3/src/stringutils.js"></script>
-		<script type="text/javascript" src="id3/src/id3v2.js"></script>
-
-		<script type="text/javascript" src="id3/src/id3v2frames.js"></script>
-		<script type="text/javascript" src="id3/src/id3v1.js"></script>
-		-->
 		<script type="text/javascript" src="id3/src/new.js"></script>
-
 		<script type="text/javascript" src="bracket.js"></script>
 		<script type="text/javascript" src="controls.js"></script>
 		<script type="text/javascript" src="misc.js"></script>
@@ -38,13 +21,20 @@
  
     <body>
 		<div id="tasks">
-			<img id="logo" src="images/logo.png"></img>
+			<a href="http://www.chmoder.org/projects/bracket/" target="_blank"><img id="logo" src="images/logo.png"></img></a>
             <div id="importProgress">
 				<input type="file" id="file_elem" name="file_elem" accept="audio/*" webkitdirectory directory onchange="bracket.handleFiles(this.files);" style="position:absolute; z-index:-1; visibility:hidden;" />
-                <div id="add_files">Add Music</div>
+                <div id="add_files">Add Directory</div>
 				<div id="importSongCount"></div>
 			</div>
-			<!--<input type="text" id="search" />-->
+			<div id="lastfm" class="lastfm" onclick="($('#lastfm > div').css('display') == 'none') ? $('#lastfm > div').slideDown():$('#lastfm > div').slideUp();">last.fm
+				<div>
+					<!--<a href="#" class="item" onclick="return false;">Log In</a><br />-->
+					<a href="#" class="item" onclick="bracket.normalizeTracks(); return false;">Normalize Tracks</a><br />
+					<a href="#" class="item" onclick="bracket.addAlbumArtwork(); return false;">Add Artwork</a>
+				</div>
+			</div>
+			<input type="text" id="search" onkeyup="bracket.songSearch(this.value)" />
 		</div>
 		<div id="titles">
 			<div id="artistsSectionTitle">
@@ -87,7 +77,7 @@
 				</div>
                 <div id="songTime"></div>
 			</div>
-			<!--<img id="nowArt"></img>-->
+			<img id="nowArt"></img>
 			<audio id="currentSong" preload></audio>
         </div>
     </body> 
