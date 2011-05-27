@@ -1,7 +1,7 @@
 {
   "name": "Bracket",
   "description": "Music player in a browser.",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "app": {
     "launch": {
       "local_path": "index.html"
@@ -16,7 +16,10 @@
     "unlimitedStorage",
     "notifications",
 	"http://ws.audioscrobbler.com/2.0/",
+	"https://github.com/",
 	"http://userserve-ak.last.fm/",
-	"https://github.com/"
+	"http://cdn.last.fm/",
+	"http://images.amazon.com/",
+	"http://images-eu.amazon.com/"
   ]
 }
