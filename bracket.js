@@ -183,7 +183,7 @@ bracket.lastfmGetAlbumArtwork = function(songObj/*, username*/) {
 				}
 			}
 			// Load image URL.
-			if(ajaxData.track.album === undefined)
+			if(!ajaxData.track || !ajaxData.track.album || !ajaxData.track.album.image)
 				img.src = 'https://github.com/chmoder/bracket/raw/master/images/icons/icon_128.png';
 			else
 				img.src = ajaxData.track.album.image[3]['#text'];
@@ -268,13 +268,13 @@ bracket.updateSongObj = function(songObj) {
 		var infoRequest = infoStore.delete(parseInt(songObj.songInfoId));
 		infoRequest.onsuccess = function(event) {
 			var infoReq = infoStore.add({
-																	fileName: songObj.fileName,
-																	title: songObj.title, 
-																	album: songObj.album,
-																	artist: songObj.artist,
-																	art: songObj.art,
-																	songInfoId: songObj.songInfoId
-																});
+											fileName: songObj.fileName,
+											title: songObj.title, 
+											album: songObj.album,
+											artist: songObj.artist,
+											art: songObj.art,
+											songInfoId: songObj.songInfoId
+										});
 			infoReq.onsuccess = function(event) {
 				bracket.updateProcessedFiles.increment();
 				bracket.updateProcessedFiles.updateTextProgress();
