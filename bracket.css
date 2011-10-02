@@ -2,9 +2,8 @@ html,body
 {
 	margin:0;
 	padding:0;
-	background:#333;
-	color:#FFF;
-	font-family:arial, serif;
+	font-family: Verdana;
+	color:#444;
 
 }
 
@@ -13,9 +12,9 @@ html,body
 	position:absolute;
 	top:0;
 	left:0;
-	height:7%;
+	height:8%;
 	width:100%;
-	border-bottom:#444444 .15em solid;
+	border-bottom:#DDD .15em solid;
 }
 
 #logo
@@ -27,19 +26,37 @@ html,body
 	
 }
 
+#deleteLibrary
+{
+	position:absolute;
+	display:block;
+	width:11%;
+	top:30%;
+	left:17%;
+	text-align:center;
+	font-size:100%;
+	font-weight:bold;
+    background:#06D;
+    border:solid .25em #333;
+	border-radius: 3px;
+	color:#FFF;
+	cursor:pointer; cursor:hand;
+}
+
 #importProgress
 {
 	position:absolute;
 	display:block;
-	width:30%;
-	top:25%;
-	left:35%;
+	width:15%;
+	top:30%;
+	left:37%;
 	text-align:center;
 	font-size:100%;
 	font-weight:bold;
-    background:#444;
-    border:solid .25em #444;
+    background:#333;
+    border:solid .25em #333;
 	border-radius: 3px;
+	color:#FFF;
 }
 
 #add_files
@@ -64,8 +81,8 @@ html,body
 div.lastfm
 {
 	position:absolute;
-	top:25%;
-	left:68%;
+	top:30%;
+	left:62%;
 	width:11%;
 	padding:0;
 	margin:0;
@@ -73,9 +90,10 @@ div.lastfm
 	font-weight:bold;
 	font-size:100%;
 	text-align:center;
-    border:solid .25em #444;
+    border:solid .25em #333;
 	border-radius: 6px;
 	cursor:pointer; cursor:hand;
+	color:#FFF;
 	
 }
 
@@ -83,7 +101,7 @@ div.lastfm > div
 {
 	position:absolute;
 	top:98%;
-	left:-.35em;
+	left:-.4em;
 	width:100%;
 	z-index:1;
 	background:#D51007;
@@ -92,7 +110,7 @@ div.lastfm > div
 	margin:0;
 	font-size:70%;
 	text-align:left;
-	border:solid .35em #444;
+	border:solid .4em #333;
 	border-top:none;
 	border-bottom-left-radius: 6px;
 	border-bottom-right-radius: 6px;
@@ -113,9 +131,9 @@ div.lastfm > div > ul > li
 
 div.lastfm > div > ul > li > a.item
 {
-	color:#FFF;
 	vertical-align:bottom;
 	text-decoration:none;
+	color:#FFF;
 }
 
 div.lastfm > div > ul > li:hover
@@ -127,16 +145,29 @@ div.lastfm > div > ul > li:hover
 #search
 {
 	position:absolute;
-	right:1%;
-	top:25%;
-	width:16%;
+	right:7%;
+	top:30%;
+	width:12%;
 	font-size:100%;
     background:#06D;
-    border:solid .25em #444;
+    border:solid .25em #333;
 	border-radius:6px;
 	color:#FFF;
 	margin:0;
 	padding:0 0 0 .5%;
+}
+
+#searchButton
+{
+	position:absolute;
+	right:.25%;
+	top:30%;
+	font-weight:bold;
+    background:#06D;
+    border:solid .25em #333;
+	border-radius:6px;
+	cursor:pointer; cursor:hand;
+	color:#FFF;
 }
 
 #titles
@@ -154,7 +185,6 @@ div.lastfm > div > ul > li:hover
 	display:inline-block;
 	width:32.5%;
 	font-weight:bold;
-	color:#FFF;
 	font-size:1.25em;
 	line-height:0%;
 	text-align:left;
@@ -167,7 +197,6 @@ div.lastfm > div > ul > li:hover
 	display:inline-block;
 	width:33%;
 	font-weight:bold;
-	color:#FFF;
 	font-size:1.25em;
 	line-height:0;
 	text-align:left;
@@ -180,7 +209,6 @@ div.lastfm > div > ul > li:hover
 	display:inline-block;
 	width:30%;
 	font-weight:bold;
-	color:#FFF;
 	font-size:1.25em;
 	line-height:0;
 	text-align:left;
@@ -200,10 +228,10 @@ div.lastfm > div > ul > li:hover
 {
 	position:relative;
 	float:left;
-	width:33%;
+	width:15%;
 	height:100%;
-	border-top:.15em solid #444444;
-	border-bottom:.15em solid #444444;
+	border-top:.1em solid #DDD;
+	border-bottom:.1em solid #DDD;
 	overflow:auto;
 }
 
@@ -211,20 +239,21 @@ div.lastfm > div > ul > li:hover
 {
 	position:relative;
 	float:left;
-	width:33%;
+	width:59%;
 	height:100%;
 	overflow:auto;
-	border:.15em solid #444444;
+	border:.1em solid #DDD;
+	font-size:.85em;
 }
 
 #songSection
 {
 	position:relative;
 	float:left;
-	width:33%;
+	width:25%;
 	height:100%;
-	border-top:.15em solid #444444;
-	border-bottom:.15em solid #444444;
+	border-top:.1em solid #DDD;
+	border-bottom:.1em solid #DDD;
 	overflow:auto;
 }
 
@@ -241,26 +270,46 @@ table
 .selectable
 {
 	position:relative;
-	width:97%;
-	cursor:pointer; cursor:hand;
-	color:#FFF;
-	font-size:1em;
+	width:98%;
+	cursor:pointer;
+	font-size:.95em;
 	vertical-align:middle;
-	margin:0 auto 0 auto;
-	font-family: Century Gothic, sans-serif;
 }
 
 tr.selectable
 {
-	height:32px;
+	height:100%;
 	margin:0;
 	padding:0;
 	border:0;
 }
 
+.selectableHover
+{
+	background:#BFBFBF;
+	font-weight:bold;
+}
+
 tr.selectable:hover
 {
-	font-weight:bold;
+	background:#DFDFDF;
+}
+
+img.selectableAlbum
+{
+	border:.25em solid #FFFFFF;
+	border-radius:6px;
+}
+
+img.selectableAlbum:hover
+{
+	border:.25em solid orange;
+	border-radius:6px;
+}
+
+img.selectableAlbumHover{
+	border:.25em solid orange;
+	border-radius:6px;
 }
 
 #now
@@ -270,8 +319,8 @@ tr.selectable:hover
 	left:0;
 	width:100%;
 	height:22%;
-	/*border-top:.15em solid #444444;*/
-	/*border-bottom:.15em solid #444444;*/
+	/*border-top:.15em solid #DDDDDD;*/
+	/*border-bottom:.15em solid #DDDDDD;*/
 }
 
 #nowArt
@@ -292,7 +341,8 @@ tr.selectable:hover
 	bottom:0px;
 	left:0;
 	margin:0;
-    background:#444;
+    background:#333;
+	border-top:solid .15em orange;
 }
 
 #prevButton
@@ -356,5 +406,6 @@ tr.selectable:hover
 	position:absolute;
 	left:71%;
 	text-align:center;
+	color:#FFF;
 }
 

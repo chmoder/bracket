@@ -17,6 +17,7 @@
 		<script type="text/javascript" src="bracket.js"></script>
 		<script type="text/javascript" src="controls.js"></script>
 		<script type="text/javascript" src="misc.js"></script>
+		<script type="text/javascript" src="jquery.md5.js"></script>
     </head> 
  
     <body>
@@ -27,34 +28,23 @@
                 <div id="add_files">Add Directory</div>
 				<div id="importSongCount"></div>
 			</div>
-			<div id="lastfm" class="lastfm" onclick="($('#lastfm > div').css('display') == 'none') ? $('#lastfm > div').slideDown():$('#lastfm > div').slideUp();">last.fm
+			<div id="deleteLibrary" onclick="bracket.deleteLibrary();">Clear Library</div>
+			<div id="lastfm" class="lastfm" onclick="($('#lastfm > div').css('display') == 'none') ? $('#lastfm > div').slideDown():$('#lastfm > div').slideUp();">Last.fm
 				<div>
 					<ul>
-						<!--<a href="#" class="item" onclick="return false;">Log In</a><br />-->
+						<li onclick="window.location='http://www.last.fm/api/auth/?api_key='+bracket.api_key+'&cb='+window.location.origin+window.location.pathname">Log In</li>
 						<li onclick="bracket.normalizeTracks();"><a href="#" class="item" onclick="return false;">Normalize Tracks</a></li>
 						<li onclick="bracket.addAlbumArtwork();"><a href="#" class="item" onclick="return false;">Add Artwork</a></li>
 					</ul>
 				</div>
 			</div>
-			<input type="text" id="search" onkeyup="bracket.songSearch(this.value)" />
-		</div>
-		<div id="titles">
-			<div id="artistsSectionTitle">
-				Artists
-			</div>
-			<div id="albumsSectionTitle">
-				Albums
-			</div>
-			<div id="songsSectionTitle">
-				Songs
-			</div>
+			<input type="text" id="search" /><div id="searchButton" onclick="bracket.songSearch($('#search').val());">search</div>
 		</div>
  		<div id="mid">
 			<div id="artistSection">
 				<table id="artists" class="selectable">
 				</table>
 			</div>
-
 			<div id="albumSection">
 				<table id="albums" class="selectable">
 				</table>

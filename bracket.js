@@ -8,6 +8,49 @@
 var bracket = {};
 bracket.controls = {};
 bracket.misc = {};
+bracket.api_key = 'b164358899cb569574af5881198d3c58';
+bracket.api_secret = 'af54ace41e003edf6aad70b7ac01d7e2'
+bracket.user = '';
+bracket.defaultAlbumArt = 'data:image/png;base64,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';
+
+bracket.deleteLibrary = function() {
+	if(typeof window.indexedDB.deleteDatabase !== 'undefined'){
+		var request = window.indexedDB.deleteDatabase('musicDB');
+		request.onsuccess = function(event) {
+			console.log(event.result);
+		}
+		request.onerror = function(event){
+			alert('Failed to clear library.');
+			console.log('Failed to delete database using deleteDatabase method.  %o', event);
+		}
+	}
+	else{
+		var request = window.indexedDB.open('musicDB');
+		request.onsuccess = function(event) {
+			var db = event.target.result;
+			var versionRequest = db.setVersion(++db.version);
+			console.log(versionRequest);
+			
+			versionRequest.onsuccess = function(event) {
+				db.deleteObjectStore('songInfoDB');
+				db.deleteObjectStore('songDataDB');
+				$('#add_files').text('Library Cleared.');
+			}
+			
+			versionRequest.onblocked = function(event) {
+				console.log('blocked %o', event);
+			}
+			
+			versionRequest.onerror = function(event) {
+				console.log('failed to set version %o', event);
+			}
+		}
+		
+		request.onerror = function(event) {
+			console.log('failed to open db');
+		}
+	}
+}
 
 bracket.handleFiles = function(inputFiles)
 {
@@ -65,6 +108,7 @@ bracket.insertSongInfo = function(tags, id, files, i, callback) {
 																title: tags.title, 
 																album: tags.album,
 																artist: tags.artist,
+																art: bracket.defaultAlbumArt,
 																songInfoId: id
 															});
 		infoReq.onsuccess = function(event) {
@@ -95,24 +139,86 @@ bracket.insertSongData = function(data, tags, files, i, callback) {
 	}
 }
 
-/*
-bracket.lastfmLoginUser = function() {
-	var retval = null;
+bracket.lastfmGetSession = function(token){
+	var api_sig = encodeURIComponent('api_key'+bracket.api_key+'methodauth.getsession'+'token'+token);
+	api_sig += bracket.api_secret;
+	api_sig = $.md5(api_sig);
+
 	$.ajax({
-		url: 'http://www.last.fm/api/auth/',
+		url: 'http://ws.audioscrobbler.com/2.0/',
 		type: 'GET',
 		data:{
-		  		api_key: 'b164358899cb569574af5881198d3c58',
-			},
+		  		api_key: bracket.api_key,
+				api_sig: api_sig,
+		  		format: 'json',
+				method: 'auth.getsession',
+				token: token
+		},
+		dataType: 'json',
+		crossDomain: true,
+		async: true,
+		success: function(data) {
+			console.log('saving session to local storage!');
+			localStorage.setItem('sk', data.session.key);
+			bracket.user = data.session.name;
+			window.location = window.location.origin+window.location.pathname;
+		}
+	});
+}
+
+bracket.lastfmRadioTune = function(){
+	var api_sig = 'api_key'+bracket.api_key+'methodradio.tune'+'sk'+localStorage.getItem('sk')+'station'+'lastfm://artist/korn/similarartists';
+	api_sig += bracket.api_secret;
+	api_sig = $.md5((api_sig));
+	console.log('md5(sig)= %o', api_sig);
+
+	$.ajax({
+		url: 'http://ws.audioscrobbler.com/2.0/',
+		type: 'POST',
+		data:{
+				api_key: bracket.api_key,
+				api_sig: api_sig,
+				method: 'radio.tune',
+				sk: localStorage.getItem('sk'),
+				station: 'lastfm://artist/korn/similarartists',
+				format: 'json'
+		},
 		dataType: 'json',
 		crossDomain: true,
 		async: false,
 		success: function(data) {
-			retval = data;
+			console.log(data);
 		}
-	});
+	});	
 }
-*/
+
+bracket.lastfmGetPlaylist = function(){
+	var api_sig = encodeURIComponent('api_key'+bracket.api_key+'bitrate'+'128'+'discovery'+'1'+'methodradio.getplaylist'+'rtp'+'1'+'sk'+localStorage.getItem('sk'));
+	api_sig += bracket.api_secret;
+	api_sig = $.md5(api_sig);
+	console.log('md5(sig)= %o', api_sig);
+
+	$.ajax({
+		url: 'http://ws.audioscrobbler.com/2.0/',
+		type: 'POST',
+		data:{
+		  		api_key: bracket.api_key,
+				api_sig: api_sig,
+				bitrate: '128',
+				discovery: '1',
+				method: 'radio.getplaylist',
+				rtp: '1',
+				sk: localStorage.getItem('sk'),
+				format: 'json'
+		},
+		dataType: 'json',
+		crossDomain: true,
+		async: false,
+		success: function(data) {
+			console.log(data);
+		}
+	});	
+}
 
 bracket.lastfmGetTrackInfo = function(songObj) {
 	$.ajax({
@@ -123,7 +229,7 @@ bracket.lastfmGetTrackInfo = function(songObj) {
 		  		track: songObj.title,
 		  		/*username: username,*/
 		  		method: 'track.getinfo', 
-		  		api_key: 'b164358899cb569574af5881198d3c58',
+		  		api_key: bracket.api_key,
 		  		autocorrect: 1,
 		  		format: 'json'
 			},
@@ -154,7 +260,7 @@ bracket.lastfmGetAlbumArtwork = function(songObj/*, username*/) {
 		  		track: songObj.title,
 		  		/*username: username,*/
 		  		method: 'track.getinfo', 
-		  		api_key: 'b164358899cb569574af5881198d3c58',
+		  		api_key: bracket.api_key,
 		  		autocorrect: 1,
 		  		format: 'json'
 			},
@@ -180,13 +286,93 @@ bracket.lastfmGetAlbumArtwork = function(songObj/*, username*/) {
 					bracket.updateSongObj(songObj);
 				}catch(e){
 					console.log(e);
+					try{
+						img.src = 'images/icons/icon_128.png';
+					}
+					catch(e){
+						console.log('really failed %o', e);
+					}
 				}
 			}
 			// Load image URL.
 			if(!ajaxData.track || !ajaxData.track.album || !ajaxData.track.album.image)
-				img.src = 'https://github.com/chmoder/bracket/raw/master/images/icons/icon_128.png';
+				img.src = 'images/icons/icon_128.png';
 			else
 				img.src = ajaxData.track.album.image[3]['#text'];
+		}
+	});
+}
+
+bracket.lastfmTrackScrobble = function(songInfoId) {
+	var request = window.indexedDB.open('musicDB', 'Music Player Database');
+	request.onsuccess = function(event) {
+		var db = event.target.result;
+		var transaction = db.transaction(['songInfoDB'], webkitIDBTransaction.READ_ONLY);
+
+		var infoStore = transaction.objectStore('songInfoDB');
+		var infoIndex = infoStore.index('songInfo');
+		var infoRequest = infoIndex.get(parseInt(songInfoId));
+		infoRequest.onsuccess = function(event) {
+			var songObj = {
+				title: event.target.result.title,
+				artist: event.target.result.artist,
+				album: event.target.result.album
+			};
+
+			var timestamp = Math.round((new Date()).getTime() / 1000);
+			var api_sig = 'api_key'+bracket.api_key+'artist'+songObj.artist+'methodtrack.scrobble'+'sk'+localStorage.getItem('sk')+'timestamp'+timestamp+'track'+songObj.title;
+			api_sig += bracket.api_secret;
+			api_sig = $.md5((api_sig));
+
+			$.ajax({
+				url: 'http://ws.audioscrobbler.com/2.0/',
+				type: 'POST',
+				data:{
+						api_key: bracket.api_key,
+						api_sig: api_sig,
+				  		artist: songObj.artist, 
+				  		method: 'track.scrobble',
+						sk: localStorage.getItem('sk'),
+						timestamp:timestamp,
+				  		track: songObj.title,
+				  		format: 'json'
+					},
+				dataType: 'json',
+				crossDomain: true,
+				async: true,
+				success: function(data, status, jqXHR) {
+					console.log('Scobbled ++1');
+					console.log(data);
+				}
+			});
+		}
+		db.close();
+	}
+}
+
+bracket.lastfmTrackUpdateNowPlaying = function(songObj) {
+	var api_sig = 'api_key'+bracket.api_key+'artist'+songObj.artist+'methodtrack.updateNowPlaying'+'sk'+localStorage.getItem('sk')+'track'+songObj.title;
+	api_sig += bracket.api_secret;
+	api_sig = $.md5((api_sig));
+
+	$.ajax({
+		url: 'http://ws.audioscrobbler.com/2.0/',
+		type: 'POST',
+		data:{
+				api_key: bracket.api_key,
+				api_sig: api_sig,
+		  		artist: songObj.artist, 
+		  		method: 'track.updateNowPlaying',
+				sk: localStorage.getItem('sk'),
+		  		track: songObj.title,
+		  		format: 'json'
+			},
+		dataType: 'json',
+		crossDomain: true,
+		async: true,
+		success: function(data, status, jqXHR) {
+			console.log('now Playing');
+			console.log(data);
 		}
 	});
 }
@@ -223,6 +409,7 @@ bracket.addAlbumArtwork = function() {
 				event.target.result.continue();
 			}
 		}
+		db.close();
 	}
 }
 
@@ -242,8 +429,11 @@ bracket.normalizeTracks = function() {
 			if(event.target.result == null)
 			{
 				db.close();
+
+
 				bracket.updateProcessedFiles.setTotalFiles(existArr.length);
 				bracket.updateProcessedFiles.updateTextProgress();
+
 				for(var i in existArr) {
 					bracket.lastfmGetTrackInfo(existArr[i]);
 				}
@@ -255,6 +445,7 @@ bracket.normalizeTracks = function() {
 				event.target.result.continue();
 			}
 		}
+		db.close();
 	}
 }
 
@@ -287,6 +478,7 @@ bracket.updateSongObj = function(songObj) {
 		infoRequest.onerror = function(event) {
 			console.log('Error deleting entry %o', event);
 		}
+		db.close();
 	}
 }
 
@@ -330,17 +522,21 @@ bracket.init = function() {
 	var request = window.indexedDB.open('musicDB');
 	request.onsuccess = function(event) {
 		var db = event.target.result;
-		var request = db.setVersion('1');
-		request.onsuccess = function(event) {
-			var hasMyStore = db.objectStoreNames.contains('songDataDB');
-			if(!hasMyStore) {
-				var store = db.createObjectStore('songInfoDB', {keyPath: 'songInfoId', autoIncrement: false});
-				store.createIndex('songInfo', 'songInfoId');
-				store = db.createObjectStore('songDataDB', {keyPath: 'songDataId', autoIncrement: true});
-				store.createIndex('songs', 'songDataId');
+		if(db.version % 2 == 0) {
+			var request = db.setVersion(++db.version);
+			console.log(request);
+			request.onsuccess = function(event) {
+				var hasMyStore = db.objectStoreNames.contains('songDataDB');
+				if(!hasMyStore) {
+					var store = db.createObjectStore('songInfoDB', {keyPath: 'songInfoId', autoIncrement: false});
+					store.createIndex('songInfo', 'songInfoId');
+					store = db.createObjectStore('songDataDB', {keyPath: 'songDataId', autoIncrement: true});
+					store.createIndex('songs', 'songDataId');
+				}
+				db.close();
 			}
-			db.close();
 		}
+		db.close();
 		bracket.loadArtists();
 	}
 }
@@ -393,6 +589,13 @@ bracket.pushArtist = function(artist) {
 }
 
 bracket.loadArtistAlbums = function(artistName) {
+	/*Add border to albums when selected for viewing.*/
+	$('#artists tr.selectableHover').removeClass('selectable selectableHover');
+	$('#artists tr').addClass('selectable');
+	$('#artists tr > td:contains("'+artistName+'")').parent().addClass('selectableHover');
+
+	
+	$('#albums').append('<tr>');
 	var request = window.indexedDB.open('musicDB', 'Music Player Database');
 	request.onsuccess = function(event) {
 		var db = event.target.result;
@@ -406,14 +609,18 @@ bracket.loadArtistAlbums = function(artistName) {
 			{
 				db.close();
 				//$('#albums .selectable:first').toggleClass('selectableAssoc');
-				bracket.loadAlbumSongs($('#albums tr:first > td').text());
+				bracket.loadAlbumSongs($('#albums td:first').text());
 				return;
 			}
 			else
 			{
-				existArr.push($('#albums tr.selectable > td').text());
+				existArr.push($('#albums tr.selectableAlbum > td').text());
 				if(event.target.result.value.artist == artistName && $.inArray(event.target.result.value.album, existArr) == -1)
 				{
+					console.log((($('#albums tr:last td').length + 1) ) * 128);
+					if(($('#albums tr:last td').length + 1) * (128 + (6*2)) >= $('#albums').width()){
+						$('#albums').append('</tr><tr>');
+					}
 					bracket.pushAlbum(event.target.result.value);
 					existArr.push(event.target.result.value.album);
 				}
@@ -421,13 +628,19 @@ bracket.loadArtistAlbums = function(artistName) {
 			}
 		};
 	}
+	$('#albums').append('</tr>');
 }
 
 bracket.pushAlbum = function(value) {
-	$('#albums').append('<tr class="selectable" onclick="bracket.clearSongs(); bracket.loadAlbumSongs($(this).text());"><td style="background:url(' + value.art + ') no-repeat 100% 0; background-size:32px;">' + value.album + '</td></tr>');
+	$('#albums tr:last').append('<td onclick="bracket.clearSongs(); bracket.loadAlbumSongs($(this).text());" style="text-align:center;"><img class="selectableAlbum" style="margin:.25em; width:128px;" src="'+ value.art + '"><br />' + value.album.slice(0, 22) + '</td>');
 }
 
 bracket.loadAlbumSongs = function(albumName) {
+	/*Add border to albums when selected for viewing.*/
+	$('#albums td img').removeClass('selectableAlbum selectableAlbumHover');
+	$('#albums td img').addClass('selectableAlbum');
+	$('#albums td:contains("'+albumName+'") img').addClass('selectableAlbumHover');
+	
 	var request = window.indexedDB.open('musicDB', 'Music Player Database');
 	request.onsuccess = function(event) {
 		var db = event.target.result;
@@ -482,13 +695,18 @@ bracket.selected = {
 		row = ($('#'+row));
 		if(this.prev == null) {
 			this.prev = row;
-			$(row).css('font-weight', 'bold'); 
+			$(row).addClass('selectableHover');
+			//$(row).css('background-color', '#DFDFDF'); 
 		}
 		else {
-			$(this.prev).css('font-weight', 'normal');
+			$(this.prev).removeClass('selectable selectableHover');
+			$(this.prev).addClass('selectable');
+			//$(this.prev).css('background-color', '#FFFFFF');
 			this.prev = row;
-			$(row).css('font-weight', 'bold'); 
+			//$(row).css('background-color', '#DFDFDF'); 
+			$(row).addClass('selectableHover');
 		}
+
 	}
 };
 
@@ -496,8 +714,10 @@ bracket.playList = {
 	list: [],
 	next: 0,
 	prev: 0,
+	curr: 0,
 	make: function(curr){
 		this.list = [];
+		this.curr = $(curr).attr('id');
 		this.next = null;
 		this.prev = null;
 
@@ -538,6 +758,9 @@ bracket.playList = {
 	},
 	getPrev: function(){
 		return this.prev;
+	},
+	getCurr: function(){
+		return this.curr;
 	}
 };
 
@@ -560,6 +783,8 @@ bracket.play = function(songInfoId) {
 			$('#playPauseButton').css('display','block');
 			$('#playPauseButton').text('Pause');
 			bracket.controls.newProgressBar();
+			bracket.lastfmTrackUpdateNowPlaying(event.target.result);
+			db.close();
 		}
 
 		var dataStore = transaction.objectStore('songDataDB');
@@ -648,7 +873,27 @@ bracket.drop = function(event) {
 	bracket.handleFiles(event.dataTransfer.files);
 }
 
+function getUrlVars()
+{
+    var vars = [], hash;
+    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+    for(var i = 0; i < hashes.length; i++)
+    {
+        hash = hashes[i].split('=');
+        vars.push(hash[0]);
+        vars[hash[0]] = hash[1];
+    }
+    return vars;
+}
+
 $(document).ready(function() {
+	console.log(window.location);
+	console.log(window.location.origin+window.location.pathname);
+	//localStorage.clear();
+	console.log('test %o', localStorage.getItem('sk'));
+	if(getUrlVars()['token'] && !localStorage.getItem('sk')) {
+		bracket.lastfmGetSession(getUrlVars()['token']);
+	}
 	bracket.init();
 	/*
 	var dropArea = document.getElementById('now');
@@ -658,7 +903,7 @@ $(document).ready(function() {
 	dropArea.addEventListener('drop', bracket.drop, false);
 	*/
 	$('#currentSong').get(0).addEventListener('seeked', function() { $('#playPauseButton').text('Pause'); bracket.controls.printNowPlayingInfo(); $('#currentSong').get(0).play(); }, true);
-	$('#currentSong').get(0).addEventListener('ended', function() { $('#playPauseButton').text('Play'); bracket.controls.clearNowPlayingInfo(); $('#songTime').html(''); bracket.controls.newProgressBar();  bracket.play(bracket.playList.getNext()); }, true);
+	$('#currentSong').get(0).addEventListener('ended', function() {	bracket.lastfmTrackScrobble(bracket.playList.getCurr()); $('#playPauseButton').text('Play'); bracket.controls.clearNowPlayingInfo(); $('#songTime').html(''); bracket.controls.newProgressBar();  bracket.play(bracket.playList.getNext()); }, true);
 	$('#currentSong').get(0).addEventListener('durationchange', function() {  $('#currentSong').get(0).currentTime = 0.0; }, true);
 	$('#currentSong').get(0).addEventListener('timeupdate', function(event) { 
 		bracket.controls.updateProgressBar(event.target);
